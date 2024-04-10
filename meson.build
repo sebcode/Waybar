@@ -145,16 +145,16 @@ conf_data.set('prefix', prefix)
 
 add_project_arguments('-DSYSCONFDIR="@0@"'.format(prefix / sysconfdir), language : 'cpp')
 
-if systemd.found()
-  user_units_dir = systemd.get_variable(pkgconfig: 'systemduserunitdir')
-
-  configure_file(
-    configuration: conf_data,
-    input: './resources/waybar.service.in',
-    output: '@BASENAME@',
-    install_dir: user_units_dir
-  )
-endif
+#if systemd.found()
+#  user_units_dir = systemd.get_variable(pkgconfig: 'systemduserunitdir')
+#
+#  configure_file(
+#    configuration: conf_data,
+#    input: './resources/waybar.service.in',
+#    output: '@BASENAME@',
+#    install_dir: user_units_dir
+#  )
+#endif
 
 src_files = files(
     'src/factory.cpp',
