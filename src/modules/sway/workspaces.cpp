@@ -296,6 +296,7 @@ auto Workspaces::update() -> void {
       needReorder = true;
     }
     auto &button = bit == buttons_.end() ? addButton(*it) : bit->second;
+    button.get_style_context()->add_class("name-" + (*it)["name"].asString());
     if (needReorder) {
       box_.reorder_child(button, it - workspaces_.begin());
     }
