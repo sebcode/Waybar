@@ -295,6 +295,7 @@ auto Workspaces::update() -> void {
       box_.reorder_child(button, it - workspaces_.begin());
     }
     bool noNodes = (*it)["nodes"].empty() && (*it)["floating_nodes"].empty();
+    button.get_style_context()->add_class("name-" + (*it)["name"].asString());
     if (hasFlag((*it), "focused")) {
       button.get_style_context()->add_class("focused");
     } else {
